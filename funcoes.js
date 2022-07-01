@@ -33,7 +33,7 @@ function buscar(idBuscado) {
   
 }
 
-// buscar(3);
+buscar(20);
 
 // console.table(resultado);
 
