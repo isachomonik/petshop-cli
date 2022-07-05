@@ -4,6 +4,7 @@ const path = require("path");
 const { emitKeypressEvents } = require("readline");
 const { findSourceMap } = require("module");
 const { map } = require("./settings/servicos");
+const { captureRejections } = require("events");
 
 // const newCachorros = JSON.parse(cachorros);
 
@@ -27,15 +28,11 @@ function buscar(idBuscado) {
   } else {
     return `Não existe cachorro com o id ${idBuscado}`;
   }
-
 }
-
 
 function listar() {
   console.table(cachorros);
 }
-
-
 
 function descrever(idBuscado) {
   let cachorro = buscar(idBuscado);
@@ -44,20 +41,19 @@ function descrever(idBuscado) {
     : console.log("Não existe cachorro com o id ${idBuscado}");
 }
 
-function adicionar(cachorroNovo){
+function adicionar(cachorroNovo) {
   let novoCachorro = {
-    id : cachorros.length + 1,
-    nome : cachorroNovo.nome,
-    sexo : cachorroNovo.sexo,
-    castrado : cachorroNovo.castrado,
-    dataDeNascimento : cachorroNovo.dataDeNascimento,
-    peso : cachorroNovo.peso,
-    vacinas : [],
-    servicos : []
+    id: cachorros.length + 1,
+    nome: cachorroNovo.nome,
+    sexo: cachorroNovo.sexo,
+    castrado: cachorroNovo.castrado,
+    dataDeNascimento: cachorroNovo.dataDeNascimento,
+    peso: cachorroNovo.peso,
+    vacinas: [],
+    servicos: [],
+  };
 
-  }
-
-  cachorros.push(novoCachorro)
+  cachorros.push(novoCachorro);
 
   salvar();
 }
@@ -70,6 +66,26 @@ function adicionar(cachorroNovo){
 //   sexo : 'm'
 // }
 
-adicionar(dog)
+// adicionar(dog)
+
+function vacinar(id, vacina, dataVacina) {
+
+  let cachorro = buscar(id);
+
+  let dadosVacina = {
+    nome: vacina,
+    data: dataVacina
+  };
+
+  if(cachorro.id){
+    cachorro.vacinas.push(dadosVacina);
+  } else {
+   console.log("Cachorro inexistente!")
+  };
+
+  salvar();
+};
+
+
 
 module.exports = { buscar };

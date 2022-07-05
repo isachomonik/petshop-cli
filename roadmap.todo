@@ -27,7 +27,7 @@ literal que será exportado.
   . Essa função deve imprimir uma mensagem `Não existe cachorro com o id ${id}`
     caso não exista nenhum cachorro com o id passado.
 
-☐ Crie uma função chamada adicionar @started(22-07-05 08:41)
+✔ Crie uma função chamada adicionar @started(22-07-05 08:41) @done(22-07-05 08:49) @lasted(8m17s)
   . Essa função deve adicionar um novo cachorro no arquivo
     de cachorros.
   . Essa função deve receber como parâmetro um objeto literal com os seguintes campos
@@ -68,7 +68,7 @@ literal que será exportado.
     não exista um cachorro com o id passado.
 
 ☐  Crie uma função chamada remover
-  . Essa função deve remover um cachorro do array de serviços.
+  . Essa função deve remover um cachorro do array e salvar o array de cachorros.
   . Ela deve recber um único parâmetro
     + id  (Id cachorro do cachorro a ser vacinado)
   . Essa função não deve retornar nada
