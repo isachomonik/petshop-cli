@@ -44,8 +44,8 @@ literal que será exportado.
   . Salve o array de cachorros em forma de JSON no arquivo
     database/cachorros.json
 
-☐ Crie uma função chamada vacinar.
-  . Essa função deve adicionar um objeto literal com
+✔ Crie uma função chamada vacinar. @done(22-07-05 12:02)
+  ☐ . Essa função deve adicionar um objeto literal com
     as informações de uma vacina (nome e data da aplicação) no array de vacinas de um cachorro.
   . Ela deve receber três parâmetros *nesta ordem*
       + id  (Id cachorro do cachorro a ser vacinado)
@@ -56,7 +56,7 @@ literal que será exportado.
   . Essa função deve imprimir uma mensagem "Cachorro inexistente"
     não exista um cachorro com o id passado.
 
-☐ Crie uma função chamada atribuirServico
+✔ Crie uma função chamada atribuirServico @started(22-07-05 12:02) @done(22-07-05 12:04) @lasted(2m18s)
   . Essa função deve adicionar um serviço ao array de serviços
     de um cachorro
   . Ela deve receber três parâmetros *nesta ordem*

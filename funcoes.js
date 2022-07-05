@@ -86,6 +86,31 @@ function vacinar(id, vacina, dataVacina) {
   salvar();
 };
 
+function atribuirServico(id, servico, dataServico) {
 
+  let cachorro = buscar(id);
+
+  let dadosServico = {
+    nome: servico,
+    data: dataServico
+  };
+
+  if(cachorro.id){
+    cachorro.servicos.push(dadosServico);
+  } else {
+   console.log("Cachorro inexistente!")
+  };
+
+  salvar();
+};
+
+function remover(id){
+  let cachorro = buscar(id);
+  cachorros.splice(cachorros.indexOf(cachorro), 1)
+
+  salvar()
+}
+
+remover(6)
 
 module.exports = { buscar };
