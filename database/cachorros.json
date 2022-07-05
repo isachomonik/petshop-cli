@@ -110,5 +110,15 @@
         "peso": 1,
         "vacinas": [],
         "servicos": []
+    },
+    {
+        "id": 8,
+        "nome": "Marcelinho",
+        "sexo": "m",
+        "castrado": false,
+        "dataDeNascimento": "2009-12-01",
+        "peso": 12,
+        "vacinas": [],
+        "servicos": []
     }
 ]

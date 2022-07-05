@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { emitKeypressEvents } = require("readline");
 const { findSourceMap } = require("module");
+const { map } = require("./settings/servicos");
 
 // const newCachorros = JSON.parse(cachorros);
 
@@ -43,6 +44,32 @@ function descrever(idBuscado) {
     : console.log("Não existe cachorro com o id ${idBuscado}");
 }
 
+function adicionar(cachorroNovo){
+  let novoCachorro = {
+    id : cachorros.length + 1,
+    nome : cachorroNovo.nome,
+    sexo : cachorroNovo.sexo,
+    castrado : cachorroNovo.castrado,
+    dataDeNascimento : cachorroNovo.dataDeNascimento,
+    peso : cachorroNovo.peso,
+    vacinas : [],
+    servicos : []
 
+  }
+
+  cachorros.push(novoCachorro)
+
+  salvar();
+}
+
+// let dog = {
+//   nome : 'Marcelinho',
+//   castrado : false,
+//   dataDeNascimento : '2009-12-01',
+//   peso : 12,
+//   sexo : 'm'
+// }
+
+adicionar(dog)
 
 module.exports = { buscar };
