@@ -1,6 +1,7 @@
 const cachorros = require("./database/cachorros.json");
 const fs = require("fs");
 const path = require("path");
+const { emitKeypressEvents } = require("readline");
 
 // const newCachorros = JSON.parse(cachorros);
 
@@ -16,25 +17,15 @@ function salvar() {
 // salvar();
 
 function buscar(idBuscado) {
-
-  // idBuscado = 2;
-  function mesmoId(cachorro){
-    if(cachorro.id == idBuscado){
-      return true;
-
-    } else {
-      return false;
-    }
-  }    
-
-  return cachorros.find(mesmoId);
-
-  
-  
+  let cachorro = cachorros.find((cachorro) => {
+    return cachorro.id == idBuscado;
+  });
+  if (cachorro) {
+    return cachorro;
+  } else {
+    return `Não existe cachorro com o id ${idBuscado}`;
+  }
 }
 
-buscar(20);
 
-// console.table(resultado);
-
-module.exports = {};
+module.exports = { buscar };
