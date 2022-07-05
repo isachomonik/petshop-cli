@@ -118,7 +118,9 @@
         "castrado": false,
         "dataDeNascimento": "2009-12-01",
         "peso": 12,
-        "vacinas": [],
-        "servicos": []
+        "vacinas": [
+                   ],
+        "servicos": [
+                   ]
     }
 ]

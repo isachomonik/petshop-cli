@@ -5,6 +5,7 @@ const { emitKeypressEvents } = require("readline");
 const { findSourceMap } = require("module");
 const { map } = require("./settings/servicos");
 const { captureRejections } = require("events");
+const { get } = require("http");
 
 // const newCachorros = JSON.parse(cachorros);
 
@@ -68,10 +69,26 @@ function adicionar(cachorroNovo) {
 
 // adicionar(dog)
 
+function getDate(){
+  // let dataAtual = new Date();
+  // let day = dataAtual.getDay();
+  // let month = dataAtual.getMonth() + 1;
+  // let year = dataAtual.getFullYear();
+
+  // let data = '${year}-${month}-${day}';
+
+  // return data;
+
+  var today = new Date();
+ var data = today.toISOString().substring(0, 10);
+
+  return data.slice(0,10)
+}
+
 function vacinar(id, vacina, dataVacina) {
 
   let cachorro = buscar(id);
-
+  dataVacina = getDate();
   let dadosVacina = {
     nome: vacina,
     data: dataVacina
@@ -89,6 +106,7 @@ function vacinar(id, vacina, dataVacina) {
 function atribuirServico(id, servico, dataServico) {
 
   let cachorro = buscar(id);
+  dataServico = getDate();
 
   let dadosServico = {
     nome: servico,
@@ -111,6 +129,6 @@ function remover(id){
   salvar()
 }
 
-remover(6)
 
-module.exports = { buscar };
+
+module.exports = { remover, adicionar, atribuirServico, vacinar, listar, descrever};
