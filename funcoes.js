@@ -28,4 +28,10 @@ function buscar(idBuscado) {
 }
 
 
+  function listar(){
+    console.table(cachorros);
+  }
+
+  listar()
+
 module.exports = { buscar };
