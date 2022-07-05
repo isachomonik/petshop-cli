@@ -2,6 +2,7 @@ const cachorros = require("./database/cachorros.json");
 const fs = require("fs");
 const path = require("path");
 const { emitKeypressEvents } = require("readline");
+const { findSourceMap } = require("module");
 
 // const newCachorros = JSON.parse(cachorros);
 
@@ -25,13 +26,23 @@ function buscar(idBuscado) {
   } else {
     return `Não existe cachorro com o id ${idBuscado}`;
   }
+
 }
 
 
-  function listar(){
-    console.table(cachorros);
-  }
+function listar() {
+  console.table(cachorros);
+}
 
-  listar()
+
+
+function descrever(idBuscado) {
+  let cachorro = buscar(idBuscado);
+  cachorro
+    ? console.log(cachorro)
+    : console.log("Não existe cachorro com o id ${idBuscado}");
+}
+
+
 
 module.exports = { buscar };
