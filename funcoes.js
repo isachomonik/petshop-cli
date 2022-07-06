@@ -7,19 +7,20 @@ const { map } = require("./settings/servicos");
 const { captureRejections } = require("events");
 const { get } = require("http");
 
-// const newCachorros = JSON.parse(cachorros);
 
+
+// função que salva o arquivo em JSON
 function salvar() {
   let arquivo = path.resolve("./database/cachorros.json");
   let json = JSON.stringify(cachorros, null, 4);
 
   fs.writeFileSync(arquivo, json);
 
-  // console.log('arquivo: ' + arquivo + ' json: ' + json);
+
 }
 
-// salvar();
 
+// função que busca e retorna um cachorro pelo ID
 function buscar(idBuscado) {
   let cachorro = cachorros.find((cachorro) => {
     return cachorro.id == idBuscado;
@@ -31,10 +32,12 @@ function buscar(idBuscado) {
   }
 }
 
+//função que mostra uma lista com todos os cachorros cadastrados
 function listar() {
   console.table(cachorros);
 }
 
+//função que mostra as informações de um cachorro buscado
 function descrever(idBuscado) {
   let cachorro = buscar(idBuscado);
   cachorro
@@ -42,6 +45,7 @@ function descrever(idBuscado) {
     : console.log("Não existe cachorro com o id ${idBuscado}");
 }
 
+//função que adiciona um novo cachorro ao fim da lista
 function adicionar(cachorroNovo) {
   let novoCachorro = {
     id: cachorros.length + 1,
@@ -59,32 +63,15 @@ function adicionar(cachorroNovo) {
   salvar();
 }
 
-// let dog = {
-//   nome : 'Marcelinho',
-//   castrado : false,
-//   dataDeNascimento : '2009-12-01',
-//   peso : 12,
-//   sexo : 'm'
-// }
-
-// adicionar(dog)
-
+//função que retorna a data atual
 function getDate(){
-  // let dataAtual = new Date();
-  // let day = dataAtual.getDay();
-  // let month = dataAtual.getMonth() + 1;
-  // let year = dataAtual.getFullYear();
-
-  // let data = '${year}-${month}-${day}';
-
-  // return data;
-
   var today = new Date();
  var data = today.toISOString().substring(0, 10);
 
   return data.slice(0,10)
 }
 
+//função que adiciona vacina ao cachorro selecionado
 function vacinar(id, vacina, dataVacina) {
 
   let cachorro = buscar(id);
@@ -103,6 +90,7 @@ function vacinar(id, vacina, dataVacina) {
   salvar();
 };
 
+//função que adiciona serviço ao cachorro selecionado
 function atribuirServico(id, servico, dataServico) {
 
   let cachorro = buscar(id);
@@ -122,6 +110,7 @@ function atribuirServico(id, servico, dataServico) {
   salvar();
 };
 
+//função que remove um cachorro da lista
 function remover(id){
   let cachorro = buscar(id);
   cachorros.splice(cachorros.indexOf(cachorro), 1)
